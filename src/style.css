@@ -24,13 +24,19 @@
 }
 
 .big-image {
-    display: none;
     width: 85%;
     height: 100%;
-    overflow: hidden;
 }
 
-.big-image.active {
+.big-image .item {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+}
+
+
+.item.active {
     display: block;
 }
 
@@ -46,24 +52,16 @@
     position: relative;
 }
 
-.item {
+.small-image .item {
     width: 100%;
     height: calc(100% / 5);
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
 }
 
 .small-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.5;
-}
-
-.small-image img.active {
-    opacity: 1;
-    box-shadow: inset 0 0 10px #CCCCCC;
 }
 
 .chevron {
