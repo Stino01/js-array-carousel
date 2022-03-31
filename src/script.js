@@ -22,47 +22,28 @@ const text = [
     'Lorem ipsum',
 ]
 
-// big image
+// big and small images
 let imageContentBig = '';
+let imageContentSmall = '';
+let currentIndexActive = 0;
 for (let i = 0; i < items.length; i++) {
+    let classActive = '';
+    if (i === currentIndexActive) {
+        classActive = 'active';
+    }
     imageContentBig += `
-        <div class="item">
+        <div class="item ${classActive}">
             <img src="${items[i]}" alt="${title[i]}">
             <h3>${title[i]}</h3>
             <p>${text[i]}</p>
         </div>`
-};
-const bigImage = document.querySelector('.big-image');
-bigImage.innerHTML = imageContentBig;
-document.querySelector('.item').classList.add("active");
-
-// small image
-let imageContentSmall = '';
-for (let i = 0; i < items.length; i++) {
     imageContentSmall += `
-        <div class="thumb">
+        <div class="thumb ${classActive}">
             <img src="${items[i]}" alt="${title[i]}">
         </div>`
 };
-const smallImage = document.querySelector('.small-image')
-smallImage.innerHTML = imageContentSmall;
-document.querySelector('.thumb').classList.add("active");
-
-// chevron up
-let chevronUp = '';
-chevronUp += `
-    <div class="chevron up">
-        <i class="fa-solid fa-chevron-up"></i>
-    </div>`
-smallImage.innerHTML += chevronUp;
-
-// chevron down
-let chevronDown = '';
-chevronDown += `
-    <div class="chevron down">
-        <i class="fa-solid fa-chevron-down"></i>
-    </div>`
-smallImage.innerHTML += chevronDown;
+document.querySelector('.big-image').innerHTML = imageContentBig;
+document.querySelector('.small-image').innerHTML += imageContentSmall;
 
 /* let currentIndex = 0;
 
