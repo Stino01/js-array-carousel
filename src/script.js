@@ -52,15 +52,33 @@ const up = document.querySelector('.up');
 function goDown() {
     const imgs = document.getElementsByClassName('item');
     imgs[currentIndexActive].classList.remove('active');
-    currentIndexActive++;
+    const thumbs = document.getElementsByClassName('thumb');
+    thumbs[currentIndexActive].classList.remove('active');
+
+    if (currentIndexActive === 4) {
+        currentIndexActive = 0;
+    } else {
+        currentIndexActive++;
+    }
+    
     imgs[currentIndexActive].classList.add('active');
+    thumbs[currentIndexActive].classList.add('active');
 }
 
 function goUp() {
     const imgs = document.getElementsByClassName('item');
     imgs[currentIndexActive].classList.remove('active');
-    currentIndexActive--;
+    const thumbs = document.getElementsByClassName('thumb');
+    thumbs[currentIndexActive].classList.remove('active');
+
+    if (currentIndexActive === 0) {
+        currentIndexActive = items.length -1;
+    } else {
+        currentIndexActive--;
+    }
+    
     imgs[currentIndexActive].classList.add('active');
+    thumbs[currentIndexActive].classList.add('active');
 }
 
 down.addEventListener('click', goDown)
