@@ -22,21 +22,33 @@ const text = [
     'Lorem ipsum',
 ]
 
-let imageContent = '';
+// big image
+let imageContentBig = '';
 for (let i = 0; i < items.length; i++) {
-    imageContent += `
+    imageContentBig += `
         <div class="item">
-            <img src="${items[i]}" alt="lago">
+            <img src="${items[i]}" alt="${title[i]}">
             <h3>${title[i]}</h3>
             <p>${text[i]}</p>
         </div>`
 };
 const bigImage = document.querySelector('.big-image');
-const smallImage = document.querySelector('.small-image')
-bigImage.innerHTML = imageContent;
-smallImage.innerHTML = imageContent;
+bigImage.innerHTML = imageContentBig;
 document.querySelector('.item').classList.add("active");
 
+// small image
+let imageContentSmall = '';
+for (let i = 0; i < items.length; i++) {
+    imageContentSmall += `
+        <div class="thumb">
+            <img src="${items[i]}" alt="${title[i]}">
+        </div>`
+};
+const smallImage = document.querySelector('.small-image')
+smallImage.innerHTML = imageContentSmall;
+document.querySelector('.thumb').classList.add("active");
+
+// chevron up
 let chevronUp = '';
 chevronUp += `
     <div class="chevron up">
@@ -44,6 +56,7 @@ chevronUp += `
     </div>`
 smallImage.innerHTML += chevronUp;
 
+// chevron down
 let chevronDown = '';
 chevronDown += `
     <div class="chevron down">
