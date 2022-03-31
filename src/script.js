@@ -45,30 +45,23 @@ for (let i = 0; i < items.length; i++) {
 document.querySelector('.big-image').innerHTML = imageContentBig;
 document.querySelector('.small-image').innerHTML += imageContentSmall;
 
-/* let currentIndex = 0;
-
-const currentImage = document.querySelector('.item');
-currentImage[currentIndex].classList.add("active");
 
 const down = document.querySelector('.down');
-down.addEventListener('click', 'goDown')
 const up = document.querySelector('.up');
-up.addEventListener('click', 'goUp')
 
 function goDown() {
-    currentImage[currentIndex].classList.remove("active");
-    currentIndex++;
-    if (currentIndex > 4) {
-        currentIndex = 0
-    };
-    currentImage[currentIndex].classList.add("active");
-};
+    const imgs = document.getElementsByClassName('item');
+    imgs[currentIndexActive].classList.remove('active');
+    currentIndexActive++;
+    imgs[currentIndexActive].classList.add('active');
+}
 
 function goUp() {
-    currentImage[currentIndex].classList.remove("active");
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = 4
-    };
-    currentImage[currentIndex].classList.add("active");
-}; */
+    const imgs = document.getElementsByClassName('item');
+    imgs[currentIndexActive].classList.remove('active');
+    currentIndexActive--;
+    imgs[currentIndexActive].classList.add('active');
+}
+
+down.addEventListener('click', goDown)
+up.addEventListener('click', goUp)
